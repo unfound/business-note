@@ -3,8 +3,8 @@ function currying (fn, initArgs) {
     let _initArgs = initArgs || []
 
     return function (...args) {
-        let _args = args.slice()
-        _args.push(..._initArgs)
+        let _args = _initArgs.slice()
+        _args.push(...args)
 
         if (_args.length < paramsLength) {
             return currying(fn, _args)
